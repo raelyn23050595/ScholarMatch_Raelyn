@@ -153,7 +153,7 @@ body {
 /* Hero Section */
 .hero {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-primary) 0%, rgba(37, 99, 235, 0.8) 100%);
+    background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
     color: var(--color-white);
     text-align: center;
 }
@@ -228,47 +228,57 @@ body {
 /* How It Works Section */
 .how-it-works {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--color-neutral-light);
+    background: linear-gradient(135deg, #F0F4FF 0%, #E8F2FF 100%);
 }
 
 .how-it-works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
+    position: relative;
 }
 
 .how-it-works-card {
     background: var(--color-white);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
     text-align: center;
     transition: all var(--transition-normal);
+    border-top: 4px solid var(--color-primary);
 }
 
 .how-it-works-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+    transform: translateY(-6px);
 }
 
 .card-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--color-primary);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary), #3B82F6);
     color: var(--color-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin: 0 auto var(--spacing-md);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transition: all var(--transition-normal);
+}
+
+.how-it-works-card:hover .card-icon {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
 }
 
 .how-it-works-card h3 {
     font-size: var(--font-size-lg);
     color: var(--color-neutral-darker);
     margin-bottom: var(--spacing-sm);
+    font-weight: 600;
 }
 
 .how-it-works-card p {
@@ -280,26 +290,67 @@ body {
 /* Comparison Section */
 .comparison {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--color-white);
+    background: linear-gradient(135deg, #F0F4FF 0%, #FFFFFF 100%);
 }
 
 .comparison-controls {
-    background: var(--color-neutral-light);
+    background: var(--color-white);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
     margin-bottom: var(--spacing-lg);
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
 }
 
-.comparison-controls label {
+.scholarship-selector {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--spacing-lg);
+    align-items: flex-end;
+}
+
+.scholarship-box {
+    background: linear-gradient(135deg, #F8FAFF 0%, #EFF5FF 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    border: 2px solid rgba(37, 99, 235, 0.1);
+    transition: all var(--transition-normal);
+}
+
+.scholarship-box:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+}
+
+.scholarship-box h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.scholarship-box label {
     display: block;
     font-weight: 600;
     color: var(--color-neutral-darker);
     margin-bottom: var(--spacing-sm);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
 }
 
-.multi-select {
-    position: relative;
+.vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-primary), #3B82F6);
+    color: var(--color-white);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .scholarship-dropdown {
@@ -311,13 +362,19 @@ body {
     font-size: var(--font-size-md);
     color: var(--color-neutral-darker);
     background: var(--color-white);
-    transition: border-color var(--transition-fast);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.scholarship-dropdown:hover {
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .scholarship-dropdown:focus {
     outline: none;
-    border-color: var(--color-secondary-green);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .comparison-results {
@@ -327,8 +384,9 @@ body {
 .placeholder-text {
     text-align: center;
     color: var(--color-text-muted);
-    padding: var(--spacing-lg);
+    padding: 0;
     font-size: var(--font-size-md);
+    margin: 0;
 }
 
 /* Comparison Cards */
@@ -402,19 +460,25 @@ body {
 /* Chatbot Section */
 .chatbot-section {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--color-neutral-light);
+    background: linear-gradient(135deg, #F0F4FF 0%, #E8F2FF 100%);
 }
 
 .chatbot-interface {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
     background: var(--color-white);
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.15);
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 550px;
     overflow: hidden;
+    border: 2px solid rgba(37, 99, 235, 0.08);
+    transition: all var(--transition-normal);
+}
+
+.chatbot-interface:hover {
+    box-shadow: 0 15px 50px rgba(37, 99, 235, 0.2);
 }
 
 .chat-messages {
@@ -424,24 +488,38 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
 }
 
 .message-bot,
 .message-user {
     padding: var(--spacing-md);
     border-radius: var(--border-radius-lg);
-    max-width: 80%;
+    max-width: 85%;
     word-wrap: break-word;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .message-bot {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), #3B82F6);
     color: var(--color-white);
     align-self: flex-start;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .message-user {
-    background: var(--color-neutral-light);
+    background: linear-gradient(135deg, #E0E7FF, #C7D2FE);
     color: var(--color-neutral-darker);
     align-self: flex-end;
 }
@@ -457,30 +535,31 @@ body {
     display: flex;
     gap: var(--spacing-sm);
     padding: var(--spacing-md);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    background: var(--color-white);
+    border-top: 2px solid rgba(37, 99, 235, 0.1);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%);
 }
 
 .chat-input {
     flex: 1;
     padding: var(--spacing-sm);
-    border: 2px solid var(--color-primary);
+    border: 2px solid rgba(37, 99, 235, 0.2);
     border-radius: var(--border-radius);
     font-family: var(--font-family);
     font-size: var(--font-size-md);
     color: var(--color-neutral-darker);
-    transition: border-color var(--transition-fast);
+    transition: all var(--transition-fast);
+    background: var(--color-white);
 }
 
 .chat-input:focus {
     outline: none;
-    border-color: var(--color-secondary-green);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .chat-send {
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), #3B82F6);
     color: var(--color-white);
     border: none;
     border-radius: var(--border-radius);
@@ -488,13 +567,13 @@ body {
     cursor: pointer;
     transition: all var(--transition-fast);
     font-size: var(--font-size-md);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .chat-send:hover,
 .chat-send:focus {
-    background: #1D4ED8;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
 }
 
 .chat-send:active {

@@ -19,11 +19,11 @@
                 </a>
                 <nav class="nav" role="navigation" aria-label="Main navigation">
                     <ul class="nav-list">
-                        <li><a href="#home" class="nav-link">Ralph</a></li>
-                        <li><a href="https://tohwangxin.github.io/C240_FA/" class="nav-link">Scholarship Application Guidance<br>(WangXin)</a></li>
-                        <li><a href="https://raelyn23050595.github.io/ScholarMatch_Raelyn/" class="nav-link">Scholarship Comparison<br>(Raelyn)</a></li>
-                        <li><a href="#about" class="nav-link">Ee Weng</a></li>
                         <li><a href="https://23018472-tunaungmyin.github.io/C240_AungMyin/" class="nav-link">Search Scholarships<br>(Aung Myin)</a></li>
+                        <li><a href="https://raelyn23050595.github.io/ScholarMatch_Raelyn/" class="nav-link">Scholarship Comparison<br>(Raelyn)</a></li>
+                        <li><a href="https://tohwangxin.github.io/C240_FA/" class="nav-link">Scholarship Application Guidance<br>(WangXin)</a></li>
+                        <li><a href="#about" class="nav-link">Ee Weng</a></li>
+                        <li><a href="#home" class="nav-link">Scholarship Fraud Detetction (Ralph)</a></li>
                     </ul>
                 </nav>
             </div>
@@ -35,8 +35,8 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2 class="hero-title">Compare Scholarships Confidently</h2>
-                    <p class="hero-subtitle">ScholarMatch helps you understand the trade-offs between bond length, benefits, and career impact—so you can choose what fits your goals.</p>
+                    <h2 class="hero-title">✨ Compare Scholarships Confidently</h2>
+                    <p class="hero-subtitle">ScholarMatch helps you evaluate the trade-offs between bond duration, benefits, and career impact. Enabling you to make informed decisions aligned with your goals.</p>
                     <a href="#comparison" class="cta-button">Start Comparing</a>
                 </div>
             </div>
@@ -45,21 +45,21 @@
         <!-- How It Works Section -->
         <section id="how-it-works" class="how-it-works">
             <div class="container">
-                <h2 class="section-title">How It Works</h2>
+                <h2 class="section-title">🎯 Scholarship Comparison Process</h2>
                 <div class="how-it-works-grid">
                     <div class="how-it-works-card">
                         <div class="card-icon">1</div>
-                        <h3>Select Scholarships</h3>
-                        <p>Choose 2–3 scholarships you want to compare.</p>
+                        <h3>📝 Select Scholarships</h3>
+                        <p>Choose 2 scholarships you want to compare.</p>
                     </div>
                     <div class="how-it-works-card">
                         <div class="card-icon">2</div>
-                        <h3>Understand Trade-Offs</h3>
+                        <h3>⚖️ Understand Trade-Offs</h3>
                         <p>Compare bond duration, benefits, career impact, and flexibility side-by-side.</p>
                     </div>
                     <div class="how-it-works-card">
                         <div class="card-icon">3</div>
-                        <h3>Get Smart Recommendations</h3>
+                        <h3>💡 Get Smart Recommendations</h3>
                         <p>Receive AI-powered insights explaining which scholarship aligns with your priorities.</p>
                     </div>
                 </div>
@@ -69,23 +69,42 @@
         <!-- Scholarship Comparison Section -->
         <section id="comparison" class="comparison">
             <div class="container">
-                <h2 class="section-title">Scholarship Comparison Tool</h2>
+                <h2 class="section-title">🔍 Scholarship Comparison Tool</h2>
+                <p class="placeholder-text">Select two scholarships to see a detailed comparison.</p>
                 
                 <div class="comparison-controls">
-                    <label for="scholarship-select">Select Scholarships to Compare:</label>
-                    <div class="multi-select">
-                        <select id="scholarship-select" class="scholarship-dropdown" multiple aria-label="Select scholarships to compare">
-                            <option value="pscship">PSC Scholarship</option>
-                            <option value="jship">J Scholarship (Industry)</option>
-                            <option value="temasek">Temasek Foundation Scholarship</option>
-                            <option value="nus-ot">NUS OfficialTies Award</option>
-                            <option value="ntu-merit">NTU Merit Award</option>
-                        </select>
+                    <div class="scholarship-selector">
+                        <div class="scholarship-box">
+                            <h3>Scholarship 1</h3>
+                            <label for="scholarship-select-1">Select first scholarship:</label>
+                            <select id="scholarship-select-1" class="scholarship-dropdown" aria-label="Select first scholarship to compare">
+                                <option value="">-- Choose a scholarship --</option>
+                                <option value="pscship">PSC Scholarship</option>
+                                <option value="jship">J Scholarship (Industry)</option>
+                                <option value="temasek">Temasek Foundation Scholarship</option>
+                                <option value="nus-ot">NUS OfficialTies Award</option>
+                                <option value="ntu-merit">NTU Merit Award</option>
+                            </select>
+                        </div>
+
+                        <div class="vs-divider">VS</div>
+
+                        <div class="scholarship-box">
+                            <h3>Scholarship 2</h3>
+                            <label for="scholarship-select-2">Select second scholarship:</label>
+                            <select id="scholarship-select-2" class="scholarship-dropdown" aria-label="Select second scholarship to compare">
+                                <option value="">-- Choose a scholarship --</option>
+                                <option value="pscship">PSC Scholarship</option>
+                                <option value="jship">J Scholarship (Industry)</option>
+                                <option value="temasek">Temasek Foundation Scholarship</option>
+                                <option value="nus-ot">NUS OfficialTies Award</option>
+                                <option value="ntu-merit">NTU Merit Award</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
                 <div id="comparison-results" class="comparison-results">
-                    <p class="placeholder-text">Select scholarships to see a detailed comparison.</p>
                 </div>
             </div>
         </section>
@@ -93,7 +112,7 @@
         <!-- AI Chatbot Section -->
         <section id="chatbot" class="chatbot-section">
             <div class="container">
-                <h2 class="section-title">Ask ScholarMatch AI</h2>
+                <h2 class="section-title">🤖 Ask ScholarMatch AI</h2>
                 <p class="section-subtitle">Need personalized guidance? Our AI agent can explain trade-offs and help you decide based on your priorities.</p>
                 
                 <div class="chatbot-interface">
@@ -121,7 +140,7 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title">Ready to Make an Informed Decision?</h2>
+                    <h2 class="cta-title">🚀 Ready to Make an Informed Decision?</h2>
                     <p class="cta-text">ScholarMatch is here to help you understand what matters most—so you choose confidently.</p>
                     <a href="#comparison" class="cta-button cta-button-light">Compare Scholarships Now</a>
                 </div>
