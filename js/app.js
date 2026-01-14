@@ -202,7 +202,7 @@ function generateInsight(selectedIds) {
         const scholarship = scholarships[selectedIds[0]];
         const flexibility = scholarship.flexibilityScore >= 3 ? 'offers significant career flexibility' : 'requires moderate commitment';
         return `<strong>${scholarship.name}</strong> ${flexibility} with a ${scholarship.bondLength} bond. Consider this if ${
-            scholarship.flexibilityScore >= 3 ? 'you value future career options' : 'you're committed to a specific industry or sector'
+            scholarship.flexibilityScore >= 3 ? 'you value future career options' : 'you are committed to a specific industry or sector'
         }.`;
     }
 
