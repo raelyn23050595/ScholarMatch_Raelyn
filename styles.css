@@ -42,6 +42,7 @@
 
 body {
     font-family: var(--font-family);
+    padding-top: 120px;
 }
 
 /* Container */
@@ -56,10 +57,17 @@ body {
 .header {
     background: var(--color-white);
     box-shadow: var(--shadow-sm);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
     padding: var(--spacing-md) 0;
+    transition: transform 0.3s ease;
+}
+
+.header.hide {
+    transform: translateY(-100%);
 }
 
 .header-content {
@@ -123,6 +131,7 @@ body {
     transition: color var(--transition-fast);
     padding: var(--spacing-xs) 0;
     display: block;
+    font-size: 0.85rem;
 }
 
 .nav-link:hover,
@@ -159,42 +168,63 @@ body {
 }
 
 .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.2;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .hero-subtitle {
-    font-size: var(--font-size-lg);
+    font-size: 1rem;
     margin-bottom: var(--spacing-lg);
     opacity: 0.95;
     line-height: 1.6;
 }
 
+.hero-video {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
 /* CTA Button */
 .cta-button {
     display: inline-block;
-    padding: 0.75rem 2rem;
-    background: var(--color-accent-gold);
-    color: var(--color-text-dark);
+    padding: 0.5rem 1.5rem;
+    background: var(--color-white);
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
     border-radius: var(--border-radius-lg);
     transition: all var(--transition-fast);
     border: none;
     cursor: pointer;
-    font-size: var(--font-size-md);
+    font-size: 0.9rem;
+    margin: var(--spacing-lg) auto 0;
 }
 
 .cta-button:hover,
 .cta-button:focus {
-    background: #FBBF24;
+    background: var(--color-neutral-light);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -210,7 +240,7 @@ body {
 
 /* Section Titles */
 .section-title {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: var(--color-neutral-darker);
     margin-bottom: var(--spacing-lg);
@@ -218,7 +248,7 @@ body {
 }
 
 .section-subtitle {
-    font-size: var(--font-size-lg);
+    font-size: 1rem;
     color: var(--color-text-muted);
     text-align: center;
     margin-bottom: var(--spacing-lg);
@@ -314,6 +344,7 @@ body {
     border-radius: var(--border-radius-lg);
     border: 2px solid rgba(37, 99, 235, 0.1);
     transition: all var(--transition-normal);
+    text-align: center;
 }
 
 .scholarship-box:hover {
@@ -364,6 +395,7 @@ body {
     background: var(--color-white);
     transition: all var(--transition-fast);
     cursor: pointer;
+    text-align: center;
 }
 
 .scholarship-dropdown:hover {
@@ -378,49 +410,50 @@ body {
 }
 
 .comparison-results {
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
 }
 
 .placeholder-text {
     text-align: center;
     color: var(--color-text-muted);
     padding: 0;
-    font-size: var(--font-size-md);
-    margin: 0;
+    font-size: 1rem;
+    margin: 0 0 var(--spacing-md) 0;
 }
 
 /* Comparison Cards */
 .comparison-card-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
 }
 
 .comparison-card {
-    background: var(--color-neutral-light);
-    border-left: 4px solid var(--color-primary);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+    border-left: 5px solid var(--color-primary);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
     transition: all var(--transition-normal);
 }
 
 .comparison-card:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+    transform: translateY(-2px);
 }
 
 .comparison-card h3 {
     color: var(--color-primary);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
 }
 
 .comparison-attribute {
-    margin-bottom: var(--spacing-md);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding-bottom: var(--spacing-sm);
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+    padding-bottom: 0.5rem;
 }
 
 .comparison-attribute:last-child {
@@ -429,17 +462,18 @@ body {
 
 .attribute-label {
     font-weight: 600;
-    color: var(--color-neutral-darker);
-    font-size: var(--font-size-sm);
+    color: #475569;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.4px;
+    margin-bottom: 0.25rem;
 }
 
 .attribute-value {
-    color: var(--color-text-dark);
-    font-size: var(--font-size-md);
-    line-height: 1.5;
+    color: var(--color-neutral-darker);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-weight: 500;
 }
 
 .risk-high {
@@ -464,14 +498,14 @@ body {
 }
 
 .chatbot-interface {
-    max-width: 750px;
+    max-width: 600px;
     margin: 0 auto;
     background: var(--color-white);
     border-radius: var(--border-radius-lg);
     box-shadow: 0 10px 40px rgba(37, 99, 235, 0.15);
     display: flex;
     flex-direction: column;
-    height: 550px;
+    height: 400px;
     overflow: hidden;
     border: 2px solid rgba(37, 99, 235, 0.08);
     transition: all var(--transition-normal);
@@ -594,14 +628,15 @@ body {
 }
 
 .cta-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     line-height: 1.3;
+    white-space: nowrap;
 }
 
 .cta-text {
-    font-size: var(--font-size-lg);
+    font-size: 1rem;
     margin-bottom: var(--spacing-lg);
     opacity: 0.95;
     line-height: 1.6;
