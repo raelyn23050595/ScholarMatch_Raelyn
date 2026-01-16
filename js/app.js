@@ -355,8 +355,32 @@ function escapeHtml(text) {
 }
 
 // ========== INITIALIZATION ==========
+let chatbotLoaded = false;
+
 function initializeApp() {
     console.log('ScholarMatch initialized. Ready to help students make confident scholarship decisions.');
+    
+    // Ensure page starts at top
+    window.scrollTo(0, 0);
 }
 
+// Load chatbot iframe only when user scrolls to it
+window.addEventListener('scroll', () => {
+    if (chatbotLoaded) return;
+    
+    const placeholder = document.getElementById('chatbot-placeholder');
+    if (!placeholder) return;
+    
+    const rect = placeholder.getBoundingClientRect();
+    
+    // If placeholder is in viewport, load the chatbot
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+        chatbotLoaded = true;
+        placeholder.innerHTML = '<iframe tabindex="-1" src="https://cdn.botpress.cloud/webchat/v3.5/shareable.html?configUrl=https://files.bpcontent.cloud/2026/01/15/02/20260115024030-3AYNINT1.json&t=1262026" style="width: 100%; height: 100%; border: none; border-radius: 12px;"></iframe>';
+    }
+});
+
 document.addEventListener('DOMContentLoaded', initializeApp);
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});

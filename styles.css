@@ -536,14 +536,6 @@ html {
 .chatbot-section {
     padding: var(--spacing-xl) var(--spacing-md);
     background: linear-gradient(135deg, #F0F4FF 0%, #E8F2FF 100%);
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in 1s forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
 }
 
 .chatbot-interface {
